@@ -34,6 +34,13 @@
       "statusFinalizado": false,
       "categoria": "Estudos",
       "prioridade": "Alta"
+    },
+    {
+      "id": 7,
+      "descricao": "Fazer cursos TI",
+      "statusFinalizado": false,
+      "categoria": "Estudos",
+      "prioridade": "Alta"
     }
   ]
 }
