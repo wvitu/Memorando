@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
 import { state, style, trigger } from '@angular/animations';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-lista-tarefas',
@@ -15,7 +16,8 @@ import { state, style, trigger } from '@angular/animations';
       border: '2px solid #B2B6FF'
     })),
     state('highlighted', style({
-      border: '4px solid #B2B6FF'
+      border: '4px solid #B2B6FF',
+      filter: 'brightness (92%)'
 }))
 
 ])]
@@ -25,6 +27,7 @@ export class ListaTarefasComponent implements OnInit {
   formAberto: boolean = false;
   categoria: string = '';
   validado: boolean = false;
+  indexTarefa = -1;
 
   formulario: FormGroup = this.fomBuilder.group({
     id: [0],
