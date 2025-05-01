@@ -86,9 +86,10 @@
         </p>
         <p class="status-tarefa">
           <button
-            [ngClass]="(tarefa.statusFinalizado == true) ? 'icone-checked' : 'icone-unchecked'"
-            (click)="finalizarTarefa(tarefa.id);">
-          </button>
+          [ngClass]="(tarefa.statusFinalizado == true) ? 'icone-checked' : 'icone-unchecked'"
+          [@puloFinalizacao]="tarefa.statusFinalizado ? 'completa' : 'incompleta'"
+          (click)="finalizarTarefa(tarefa.id)">
+        </button>
         </p>
       </div>
       <div class="conteudo">

@@ -6,13 +6,24 @@ import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
 import { filter } from 'rxjs';
 import { highlightedStateTrigger, shownStateTrigger } from '../animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-lista-tarefas',
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
-  animations: [highlightedStateTrigger, shownStateTrigger]
+  animations: [highlightedStateTrigger, shownStateTrigger, trigger('puloFinalizacao', [
+    state('incompleta', style({ transform: 'scale(1)' })),
+    state('completa', style({ transform: 'scale(1)' })), // estado final idêntico, só o caminho anima
+
+    transition('incompleta => completa', [
+      animate('200ms', style({ transform: 'scale(1.2)' })),
+      animate('100ms', style({ transform: 'scale(1)' }))
+    ])
+  ])
+]
 })
+
 export class ListaTarefasComponent implements OnInit {
   listaTarefas: Tarefa[] = [];
   formAberto: boolean = false;
@@ -112,8 +123,13 @@ export class ListaTarefasComponent implements OnInit {
 
   finalizarTarefa(id: number) {
     this.service.buscarPorId(id!).subscribe((tarefa) => {
-      this.service.atualizarStatusTarefa(tarefa).subscribe(() => {
-        this.listarAposCheck();
+      tarefa.statusFinalizado = !tarefa.statusFinalizado;
+      this.service.editar(tarefa).subscribe(() => {
+        const index = this.listaTarefas.findIndex(t => t.id === tarefa.id);
+        if (index !== -1) {
+          // Troca local do status para reatividade
+          this.listaTarefas[index].statusFinalizado = tarefa.statusFinalizado;
+        }
       });
     });
   }

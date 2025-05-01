@@ -31,14 +31,14 @@
     {
       "id": 6,
       "descricao": "Ler",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "categoria": "Estudos",
       "prioridade": "Alta"
     },
     {
       "id": 7,
       "descricao": "Fazer cursos TI",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "categoria": "Estudos",
       "prioridade": "Alta"
     }
