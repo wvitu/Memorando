@@ -41,6 +41,27 @@
       "statusFinalizado": true,
       "categoria": "Estudos",
       "prioridade": "Alta"
+    },
+    {
+      "id": 8,
+      "descricao": "Treinar pela manhã",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 9,
+      "descricao": "Exame de lavagem no ouvido",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 10,
+      "descricao": "Terminar formação Angular",
+      "statusFinalizado": false,
+      "categoria": "Estudos",
+      "prioridade": "Alta"
     }
   ]
 }

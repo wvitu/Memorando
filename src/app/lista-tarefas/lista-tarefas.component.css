@@ -1,3 +1,58 @@
+.busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.busca p {
+  color: #6C757D;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 32px;
+}
+
+#campo-busca::placeholder {
+  color: #6C757D;
+  font-family: 'Prompt';
+  font-size: 16px;
+  padding: 8px 0 8px 8px;
+}
+
+.busca input {
+  border: 1px solid #6C757D;
+  border-radius: 8px;
+  font-family: 'Prompt';
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  padding-left: 12px;
+}
+
+input[type='search']:focus {
+  background-image: none;
+  outline: none;
+  text-decoration: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration {display: none;}
+
+@media(max-width: 1060px) {
+  .busca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .busca p {
+    margin-bottom: 12px;
+    margin-right: 0;
+  }
+}
 .lista-tarefas {
   display: flex;
   flex-direction: column;
