@@ -37,13 +37,13 @@ export const filterTrigger = trigger('filterAnimation', [
   transition(':enter', [
     style ({opacity: 0, width: 0}),
     animate('400ms ease-out', keyframes([
-      style({opacity: 0, width: 0}),
-      style({opacity: 0.5, width: '*'}),
-      style({opacity: 1, width: '*'})
+      style({offset: 0.5, opacity: 0, width: 0}),
+      style({offset: 0.8, opacity: 0.5, width: '*'}),
+      style({offset: 1, opacity: 1, width: '*'})
     ]))
   ]),
   transition(':leave', [
-    animate('400ms ease-out', style({
+    animate('400ms cubic-bezier(1,-0.83,.05,1.49)', style({
       opacity: 0,
       width: 0}))
   ])
