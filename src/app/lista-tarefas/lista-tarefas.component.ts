@@ -5,14 +5,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
 import { filter } from 'rxjs';
-import { filterTrigger, highlightedStateTrigger, shownStateTrigger } from '../animations';
+import { filterTrigger, formButtonTrigger, highlightedStateTrigger, shownStateTrigger } from '../animations';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-lista-tarefas',
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
-  animations: [highlightedStateTrigger, shownStateTrigger, filterTrigger, trigger('puloFinalizacao', [
+  animations: [highlightedStateTrigger, shownStateTrigger, filterTrigger, formButtonTrigger, trigger('puloFinalizacao', [
     state('incompleta', style({ transform: 'scale(1)' })),
     state('completa', style({ transform: 'scale(1)' })), // estado final idêntico, só o caminho anima
 
@@ -26,7 +26,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 
 export class ListaTarefasComponent implements OnInit {
   listaTarefas: Tarefa[] = [];
-  formAberto: boolean = false;
+  formAberto: boolean = true;
   categoria: string = '';
   validado: boolean = false;
   indexTarefa: number = -1;
@@ -38,8 +38,8 @@ export class ListaTarefasComponent implements OnInit {
     id: [0],
     descricao: ['', Validators.required],
     statusFinalizado: [false, Validators.required],
-    categoria: ['', Validators.required],
-    prioridade: ['', Validators.required],
+    categoria: ['Casa', Validators.required],
+    prioridade: ['Alta', Validators.required],
   });
 
   constructor(

@@ -62,6 +62,27 @@
       "statusFinalizado": false,
       "categoria": "Estudos",
       "prioridade": "Alta"
+    },
+    {
+      "id": 11,
+      "descricao": "Enviar pedidos LATAM",
+      "statusFinalizado": false,
+      "categoria": "Trabalho",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 12,
+      "descricao": "Pagar conta de LUZ ",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 13,
+      "descricao": "Pagar internet e gás",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
     }
   ]
 }
